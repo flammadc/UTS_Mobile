@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        tools:ignore="MissingConstraints">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -25,15 +26,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:backgroundTint="@android:color/transparent"
-                android:tint="@color/black"
-                app:srcCompat="@drawable/ic_action_back" />
+                app:srcCompat="@drawable/ic_action_back"
+                app:tint="@color/black" />
 
             <TextView
                 android:id="@+id/myTrack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="MyTrack"
+                android:text="@string/mytrack"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 

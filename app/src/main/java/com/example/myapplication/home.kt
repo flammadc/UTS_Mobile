@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class home : AppCompatActivity() {
     private lateinit var add: FloatingActionButton
     private lateinit var backButton: ImageButton
-    private lateinit var profileButton: ImageButton
+    private lateinit var profileButton: ImageView
     private lateinit var myTrack: TextView
 
     private fun initComponents() {
@@ -46,8 +47,7 @@ class home : AppCompatActivity() {
             startActivity(intent)
         }
         myTrack.setOnClickListener{
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
+            recreate()
         }
 
         profileButton.setOnClickListener{

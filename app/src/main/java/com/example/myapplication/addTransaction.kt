@@ -15,7 +15,7 @@ class addTransaction : AppCompatActivity() {
     private lateinit var myTrack: TextView
     private lateinit var backButton: ImageButton
     private lateinit var saveButton: Button
-    private lateinit var profileButton: ImageButton
+    private lateinit var profileButton: ImageView
     private lateinit var categorySpinner: Spinner
     private lateinit var transactionTypeGroup: RadioGroup
     private lateinit var incomeRadio: RadioButton
