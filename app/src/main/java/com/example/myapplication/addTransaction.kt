@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.util.*
 
 class addTransaction : AppCompatActivity() {
 
@@ -20,6 +22,7 @@ class addTransaction : AppCompatActivity() {
     private lateinit var transactionTypeGroup: RadioGroup
     private lateinit var incomeRadio: RadioButton
     private lateinit var expenseRadio: RadioButton
+    private lateinit var dateEditText: EditText
 
     private fun initComponents() {
         add = findViewById(R.id.add)
@@ -31,6 +34,7 @@ class addTransaction : AppCompatActivity() {
         transactionTypeGroup = findViewById(R.id.typeGroup)
         incomeRadio = findViewById(R.id.incomeRadio)
         expenseRadio = findViewById(R.id.expenseRadio)
+        dateEditText = findViewById(R.id.editTextDate)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,10 +50,8 @@ class addTransaction : AppCompatActivity() {
 
         initComponents()
 
-        // Default: show income categories
         setSpinnerItems(R.array.income_category)
 
-        // Switch category based on selected radio
         transactionTypeGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.incomeRadio -> setSpinnerItems(R.array.income_category)
@@ -58,21 +60,33 @@ class addTransaction : AppCompatActivity() {
         }
 
         backButton.setOnClickListener {
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, home::class.java))
         }
+
         myTrack.setOnClickListener {
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, home::class.java))
         }
+
         saveButton.setOnClickListener {
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, home::class.java))
         }
 
         profileButton.setOnClickListener {
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Profile::class.java))
+        }
+
+        dateEditText.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePicker = DatePickerDialog(this, { _, y, m, d ->
+                val formattedDate = String.format("%02d/%02d/%04d", d, m + 1, y)
+                dateEditText.setText(formattedDate)
+            }, year, month, day)
+
+            datePicker.show()
         }
     }
 

@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="mytrack">MyTrack</string>
+    <string name="add_transaction">Add Transaction</string>
+    <string name="date">Date</string>
+    <string name="type">Type</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="category">Category</string>
+    <string name="amount">Amount</string>
+    <string name="select_date">Select date</string>
+    <string name="save">Save</string>
+    <string name="summary">Summary</string>
+    <string name="daily_expense">Daily Expense</string>
     <string-array name="income_category">
         <item>Food</item>
         <item>Transport</item>
